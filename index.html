@@ -59,6 +59,10 @@
     align-items: center;
     position: relative;
   }
+  @media (orientation: landscape) {
+    .frame { padding: 2vh 4vw; }
+  }
+  .stage.force-landscape .frame { padding: 4vw 2vh; }
   .frame::before, .frame::after {
     content: "";
     position: absolute;
@@ -87,6 +91,14 @@
     font-size: clamp(44px, 15vw, 160px);
     color: var(--text);
     letter-spacing: 0.02em;
+  }
+  /* In landscape there's ample width, so let the digits grow to fill
+     the screen -- bounded by both axes so they never overflow. */
+  @media (orientation: landscape) {
+    .clock { font-size: clamp(60px, min(22vw, 50vh), 340px); }
+  }
+  .stage.force-landscape .clock {
+    font-size: clamp(60px, min(22vh, 50vw), 340px);
   }
   .clock .sep {
     color: var(--gold);
