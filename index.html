@@ -40,6 +40,9 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    box-sizing: border-box;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+             env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   /* burn-in mitigation: whole block drifts a few px on a slow cycle */
   .drift {
@@ -95,10 +98,10 @@
   /* In landscape there's ample width, so let the digits grow to fill
      the screen -- bounded by both axes so they never overflow. */
   @media (orientation: landscape) {
-    .clock { font-size: clamp(60px, min(22vw, 50vh), 340px); }
+    .clock { font-size: clamp(60px, min(20vw, 46vh), 320px); }
   }
   .stage.force-landscape .clock {
-    font-size: clamp(60px, min(22vh, 50vw), 340px);
+    font-size: clamp(60px, min(20vh, 46vw), 320px);
   }
   .clock .sep {
     color: var(--gold);
